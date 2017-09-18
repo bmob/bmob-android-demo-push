@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_integration"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="集成"/>
+
+    <item
+        android:id="@+id/navigation_channel"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="频道"/>
+
+    <item
+        android:id="@+id/navigation_push"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="客户端推送"/>
+
+</menu>

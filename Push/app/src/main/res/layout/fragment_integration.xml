@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="一、请您在使用推送SDK前，详细阅读推送文档并参考此示例了解推送的相关API。\n\n\n二、集成过程：\n\n1、在AndroidManifest.xml文件添加数据SDK和推送SDK的权限；\n\n2、在AndroidManifest.xml文件添加推送SDK需要的服务和广播；\n\n3、自定义消息接收器，并在AndroidManifest.xml文件中注册，注意配置好消息接收器的动作：cn.bmob.push.action.MESSAGE；\n\n4、在自定义Application中进行数据SDK的初始化、设备信息的保存以及推送服务的启动，请注意需要在AndroidManifest.xml文件中配置自定义的Application。"/>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/btn_exit"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="16dp"
+        android:text="退出登录"
+        android:textStyle="bold"/>
+</RelativeLayout>
