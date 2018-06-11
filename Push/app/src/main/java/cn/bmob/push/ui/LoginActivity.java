@@ -94,11 +94,16 @@ public class LoginActivity extends BaseActivity {
                             }
                         });
                 break;
+
+
+            default:
+                break;
         }
     }
 
     /**
      * 修改设备表的用户信息：先查询设备表中的数据，再修改数据中用户信息
+     *
      * @param user
      */
     private void modifyInstallationUser(final User user) {

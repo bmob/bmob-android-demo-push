@@ -7,8 +7,8 @@
 
 | SDK或Demo     | 下载地址          |
 |------------------------------|--------------------------------|
-| 数据服务 SDK| 使用最新版本v3.5.7，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
-| 消息推送 SDK| 使用最新版本v1.0.1，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
+| 数据服务 SDK| 使用最新版本v3.6.3，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
+| 消息推送 SDK| 使用最新版本v1.0.2，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
 | 消息推送 Demo| [https://github.com/chaozhouzhang/bmob-push-demo](https://github.com/chaozhouzhang/bmob-push-demo)|
 
 自动集成方式：
@@ -27,9 +27,9 @@ allprojects {
 ```gradle
 dependencies {
     //Bmob的数据服务SDK
-    compile 'cn.bmob.android:bmob-sdk:3.5.7'
+    compile 'cn.bmob.android:bmob-sdk:3.6.3'
     //Bmob的消息推送SDK
-    compile 'cn.bmob.android:bmob-push:1.0.1'
+    compile 'cn.bmob.android:bmob-push:1.0.2'
 }
 ```
 ### 2.2、配置AndroidManifest.xml

@@ -88,6 +88,9 @@ public class ChannelFragment extends BaseFragment {
                     }
                 }
                 break;
+
+            default:
+                break;
         }
     }
 }
