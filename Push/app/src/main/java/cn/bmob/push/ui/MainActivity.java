@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mPushFragment = new PushFragment();
         mNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mNavigation.setSelectedItemId(R.id.navigation_integration);
+
     }
 
 

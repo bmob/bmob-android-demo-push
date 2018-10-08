@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "cn.bmob.push"
         minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 102
-        versionName "1.0.2"
+        targetSdkVersion 27
+        versionCode 103
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -21,19 +21,19 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile 'com.jakewharton:butterknife:8.8.1'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile 'com.orhanobut:logger:2.1.1'
-    //Bmob的数据服务SDK
-    compile 'cn.bmob.android:bmob-sdk:3.6.3'
-    //Bmob的消息推送SDK
-    compile 'cn.bmob.android:bmob-push:1.0.2'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:support-vector-drawable:26.1.0'
-    compile 'com.android.support:design:26.1.0'
+    implementation 'com.orhanobut:logger:2.1.1'
+    //1、Bmob的数据服务SDK
+    implementation 'cn.bmob.android:bmob-sdk:3.6.3'
+    //2、Bmob的消息推送SDK
+    implementation 'cn.bmob.android:bmob-push:1.0.2'
+    implementation 'com.android.support:appcompat-v7:27.+'
+    implementation 'com.android.support:support-vector-drawable:27.+'
+    implementation 'com.android.support:design:27.+'
 }
