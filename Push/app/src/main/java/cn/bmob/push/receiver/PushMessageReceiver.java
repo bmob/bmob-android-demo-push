@@ -1,10 +1,9 @@
 package cn.bmob.push.receiver;
 
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
@@ -29,11 +28,10 @@ public class PushMessageReceiver extends BroadcastReceiver {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
             Logger.i("客户端收到推送消息：" + msg);
 
-            Intent pendingIntent = new Intent(context, MainActivity.class);
-            pendingIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher);
-            BmobNotificationManager.getInstance(context).showNotification(largeIcon,
-                    "客户端收到推送", msg, msg, pendingIntent);
+            Intent intent1 = new Intent(context, MainActivity.class);
+            intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+            BmobNotificationManager.showNotification(context, R.mipmap.ic_launcher,"客户端收到推送", msg, msg, pendingIntent);
 
         }
 

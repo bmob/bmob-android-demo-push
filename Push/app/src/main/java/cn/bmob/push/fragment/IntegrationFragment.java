@@ -2,13 +2,13 @@ package cn.bmob.push.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -19,7 +19,9 @@ import cn.bmob.push.ui.LoginActivity;
 import cn.bmob.v3.BmobInstallationManager;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
-import rx.functions.Action1;
+import cn.bmob.v3.exception.BmobException;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created on 17/8/24 16:29
@@ -62,9 +64,14 @@ public class IntegrationFragment extends BaseFragment {
         final String id = BmobInstallationManager.getInstallationId();
         bmobQuery.addWhereEqualTo("installationId", id);
         bmobQuery.findObjectsObservable(Installation.class)
-                .subscribe(new Action1<List<Installation>>() {
+                .subscribe(new Observer<List<Installation>>() {
                     @Override
-                    public void call(List<Installation> installations) {
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<Installation> installations) {
 
                         if (installations.size() > 0) {
                             Installation installation = installations.get(0);
@@ -72,9 +79,15 @@ public class IntegrationFragment extends BaseFragment {
                             installation.setUser(user);
                             user.setObjectId("");
                             installation.updateObservable()
-                                    .subscribe(new Action1<Void>() {
+                                    .subscribe(new Observer<BmobException>() {
                                         @Override
-                                        public void call(Void aVoid) {
+                                        public void onSubscribe(Disposable d) {
+
+                                        }
+
+                                        @Override
+                                        public void onNext(BmobException e) {
+
                                             toastI("更新设备用户信息成功！");
                                             /**
                                              * TODO 更新成功之后再退出
@@ -83,10 +96,15 @@ public class IntegrationFragment extends BaseFragment {
                                             startActivity(new Intent(getContext(), LoginActivity.class));
                                             getActivity().finish();
                                         }
-                                    }, new Action1<Throwable>() {
+
                                         @Override
-                                        public void call(Throwable throwable) {
+                                        public void onError(Throwable throwable) {
                                             toastE("更新设备用户信息失败：" + throwable.getMessage());
+                                        }
+
+                                        @Override
+                                        public void onComplete() {
+
                                         }
                                     });
 
@@ -94,11 +112,17 @@ public class IntegrationFragment extends BaseFragment {
                             toastE("后台不存在此设备Id的数据，请确认此设备Id是否正确！\n" + id);
                         }
 
+
                     }
-                }, new Action1<Throwable>() {
+
                     @Override
-                    public void call(Throwable throwable) {
+                    public void onError(Throwable throwable) {
                         toastE("查询设备数据失败：" + throwable.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

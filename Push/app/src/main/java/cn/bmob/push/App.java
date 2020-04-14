@@ -27,7 +27,7 @@ public class App extends Application {
         /**
          * 初始化比目数据SDK
          */
-        Bmob.initialize(this, "e9b559bd68461777602a46dead1b581b");
+        Bmob.initialize(this, "12784168944a56ae41c4575686b7b332");
         /**
          * 保存设备信息，用于推送功能
          */
